@@ -74,12 +74,12 @@
             <?php
                 require"../ChungGT_TC/copyright.php";
             ?> <!-- hết phần copyright -->
-         
-           
+
+
          <?php
                 require"../ChungGT_TC/tinnhan.php";
             ?> <!-- hết phần copyright -->
-          
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -106,9 +106,8 @@ $(".col-sm-12.form2").hide();
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.0/slick/slick.min.js"></script>
-   
+
 
 </body>
 
 </html>
-
