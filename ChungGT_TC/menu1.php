@@ -8,29 +8,20 @@
              <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                 <li class="nav-item">
-                     <a class="nav-link" href="#"><i class="fa fa-info-circle mot"
-                             style="color: #35699b; font-size: 18px; padding: 0px 4px;"></i>Giới thiệu </a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#"><i class="fa fa-graduation-cap"
-                             style="color: #35699b; font-size: 18px; padding: 0px 4px;"></i>Tuyển sinh </a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#"><i class="fa fa-book"
-                             style="color: #35699b; font-size: 18px; padding: 0px 4px;"></i>Đào tạo </a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#"><i class="fa fa-bookmark"
-                             style="color: #35699b; font-size: 18px; padding: 0px 4px;"></i>Nghiên cứu</a>
-                 </li>
-                 <li class="nav-item">
-                     <a class="nav-link" href="#"><i class="fa fa-handshake-o"
-                             style="color: #35699b; font-size: 18px; padding: 0px 4px;"></i>Hợp tác doanh nghiệp
-                     </a>
-                 </li>
-             </ul>
+           <?php
+               $danhmuc = getDanhmuc();
+               while ($row = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC)) {
+               ?>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="<?php echo $row['icon']?>"
+                                style="color: #35699b; font-size: 18px; padding: 0px 4px;"></i><?php echo $row['tendanhmuc']?> </a>
+                    </li>
+
+                </ul>
+                <?php
+              }
+                 ?>
          </div>
      </div>
  </nav>

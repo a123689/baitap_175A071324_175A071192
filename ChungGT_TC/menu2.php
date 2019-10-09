@@ -12,37 +12,38 @@
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="container" style="background-color: #04427e;">
             <div class="row">
-                <div class="col-md-6  col-lg-3">
-                    <ul class="subnav">
-                        <li><a href="">Giới thiệu chung</a></li>
+              <div class="col-md-6  col-lg-3">
+                  <ul class="subnav">
+                      <li><a href="">Giới thiệu chung</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu chung</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Toàn cảnh ĐH Nguyễn Tất Thành</a>
-                        </li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu chung</a></li>
+
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Toàn cảnh ĐH Nguyễn Tất Thành</a>
+                      </li>
 
                         <li><a href=""><i class="fa fa-angle-double-right"></i>Hệ thống Cơ sở vật chất</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Thông tin 3 công khai</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Thông tin 3 công khai</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Đảm bảo chất lượng</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Đảm bảo chất lượng</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Phát triển bền vững</a></li>
-                    </ul>
-                    <ul class="subnav">
-                        <li><a href="">Hợp tác doanh nghiệp</a></li>
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu việc làm</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Phát triển bền vững</a></li>
+                  </ul>
+                  <ul class="subnav">
+                      <li><a href="">Hợp tác doanh nghiệp</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu việc làm</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu thực tập</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu thực tập</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Câu lạc bộ Doanh nghiệp</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Câu lạc bộ Doanh nghiệp</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Ban liên lạc Cựu sinh viên</a></li>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Ban liên lạc Cựu sinh viên</a></li>
 
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Liên kết - Hợp tác</a></li>
-                    </ul>
+                      <li><a href=""><i class="fa fa-angle-double-right"></i>Liên kết - Hợp tác</a></li>
+                  </ul>
 
-                </div>
+              </div>
                 <div class=" col-md-6 col-lg-3">
                     <ul class="subnav ">
                         <li><a href="">Tuyển sinh</a></li>
@@ -83,6 +84,7 @@
                     </ul>
 
                 </div>
+                
                 <div class="col-md-6 col-lg-3">
                     <ul class="subnav btn">
                         <li><a href="#" class="btn btn-outline-info dropdown-item" role="button"><i

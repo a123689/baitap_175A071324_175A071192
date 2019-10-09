@@ -1,3 +1,7 @@
+<?php
+require "../lib/db_connect.php";
+require "../lib/trangchu.php";
+ ?>
 <!doctype html>
 <html lang="en">
 <head>
