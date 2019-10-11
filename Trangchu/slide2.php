@@ -3,30 +3,7 @@
                 <p></p>
             </h4>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="  transition:0.4;">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img class="d-block w-100" src="IMGE/logo/slideEnd1.png" alt="slide">
-                            </div>
-                            <div class="col-md-2">
-                                <img class="d-block w-100" src="IMGE/logo/slideEnd2 - Copy.png" alt="slide">
-                            </div>
-                            <div class="col-md-2">
-                                <img class="d-block w-100" src="IMGE/logo/slideEnd3 - Copy.png" alt="slide">
-                            </div>
-                            <div class="col-md-2">
-                                <img class="d-block w-100" src="IMGE/logo/slideEnd4 - Copy.png" alt="slide">
-                            </div>
-                            <div class="col-md-2">
-                                <img class="d-block w-100" src="IMGE/logo/slideEnd5 - Copy.png" alt="slide">
-                            </div>
-                            <div class="col-md-2">
-                                <img class="d-block w-100" src="IMGE/logo/slideEnd6 - Copy.png" alt="slide">
-                            </div>
-                        </div><!-- het 1 trang slide-->
 
-                    </div>
                     <div class="carousel-item ">
                         <div class="row">
                             <div class="col-md-2">
