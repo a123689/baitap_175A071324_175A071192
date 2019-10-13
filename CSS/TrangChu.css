@@ -10,7 +10,7 @@ body {
 #header nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   padding: 0px;
   background-color: #024282 !important;
- 
+
 }
 input.form-control.mr-sm-2 {
   margin: 0px !important;
@@ -23,6 +23,11 @@ input.form-control.btn-transparent.border-0 {
 p.text-uppercase {
   margin: 0px;
   padding: 8px 0px;
+}
+.menu2 {
+  background-color: rgba(2,66,130,0.95);
+  position: absolute;
+  z-index: 2;
 }
 div#navbarTogglerDemo01 {
   padding: 0px 50px 0px 0px;

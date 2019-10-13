@@ -23,6 +23,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--===============================================================================================-->
 </head>
 <body>
@@ -30,54 +31,57 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178" id="form3" name="form3" method="post" action="#">
 					<span class="login100-form-title">
 						Đăng Ký
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-						<input class="input100" type="text" name="taikhoan" placeholder="Tài khoản">
+					<div class="loidangky" style="padding-bottom:  20px; color:#FF0000; display: none; text-align: center;">
+						<span id="spanloidangnhap" class="spanloidangnhap">
+						 Lỗi đăng đăng ký?
+					 </span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa nhập tài khoản">
+						<input class="input100" type="text" id="taikhoan" placeholder="Tài khoản">
 						<span class="focus-input100"></span>
 					</div>
 
 
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-            <input class="input100" type="password" name="matkhau" placeholder="Mật khẩu">
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa nhập mật khẩu">
+            <input class="input100" type="password" id="matkhau" placeholder="Mật khẩu">
             <span class="focus-input100"></span>
           </div>
 
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-            <input class="input100" type="password" name="nhaplaimatkhau" placeholder="Nhập lại mật khẩu">
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa nhập lại mật khẩu">
+            <input class="input100" type="password" id="nhaplaimatkhau" placeholder="Nhập lại mật khẩu">
             <span class="focus-input100"></span>
           </div>
 
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-            <input class="input100" type="text" name="hoten" placeholder="Họ tên">
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa nhập họ tên">
+            <input class="input100" type="text" id="hoten" placeholder="Họ tên">
             <span class="focus-input100"></span>
           </div>
 
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-            <input class="input100" type="text" name="email" placeholder="Email">
+					<div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa email">
+						<input class="input100" type="text" id="email" placeholder="Email">
+						<span class="focus-input100"></span>
+					</div>
+
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa nhập địa chỉ">
+            <input class="input100" type="text" id="diachi" placeholder="Địa chỉ">
             <span class="focus-input100"></span>
           </div>
 
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-            <input class="input100" type="text" name="diachi" placeholder="Địa chỉ">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-            <input class="input100" type="text" name="sodienthoai" placeholder="Số điện thoại">
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Bạn chưa nhập số điện thoại">
+            <input class="input100" type="text" id="sodienthoai" placeholder="Số điện thoại">
             <span class="focus-input100"></span>
           </div>
 
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Đăng Ký
-						</button>
-					</div>
+						<input  class="login100-form-btn"	id="btndangky" name="btndangky" type="button" value="Đăng ký" >
 
+					</div>
 
 					</div>
 				</form>
@@ -85,7 +89,81 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btndangky").click(function(){
+			var matkhau = $('#matkhau').val();
+			var nhaplaimatkhau = $('#nhaplaimatkhau').val();
+			var email = $('#email').val();
+			var sodienthoai = $('#sodienthoai').val();
+			var hoten = $('#hoten').val();
+			var diachi = $('#diachi').val();
+			var taikhoan = $('#taikhoan').val();
+			if(matkhau == '' || nhaplaimatkhau == '' || email == '' || sodienthoai == '' || hoten == '' || diachi == ''){
+				$("#spanloidangnhap").html("Bạn phải nhập đầy đủ thông tin");
+			  $(".loidangky").css("display","block");
+			}else {
 
+				if(taikhoan.length < 6){
+					$("#spanloidangnhap").html("Tài khoản phải dài hơn 5 kí tự");
+					$(".loidangky").css("display","block");
+				}else {
+					var filter = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/;
+					if(!filter.test(matkhau)){
+						$("#spanloidangnhap").html("Mật khẩu phải chứa 2 chữ in hoa, có kí tự đặc biệt, 2 kí tự số, kí tực thường và lớn hơn 8 kí tự. VD: AA@99sds");
+						$(".loidangky").css("display","block");
+					}else {
+						if(matkhau != nhaplaimatkhau){
+							$("#spanloidangnhap").html("Nhập lại mật khẩu không chính xác");
+							$(".loidangky").css("display","block");
+
+						}else {
+
+
+							var filter = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+							if (!filter.test(email)) {
+								$("#spanloidangnhap").html("Địa chỉ email không hợp lệ");
+								$(".loidangky").css("display","block");
+
+							}else {
+
+								var filter = /((09|03|07|08|05)+([0-9]{8})\b)/;
+								if(!filter.test(sodienthoai)){
+									$("#spanloidangnhap").html("Số điện thoại không hợp lệ");
+									$(".loidangky").css("display","block");
+								}else {
+									$.post("kiemtrataikhoan.php",{username:$('#taikhoan').val()},function(data){
+						         if(data == "false"){
+											 $("#spanloidangnhap").html("Tài khoản đã tồn tại");
+											 $(".loidangky").css("display","block");
+										 }else {
+
+											 $.post("dangkytaikhoan.php",{hoten:$('#hoten').val(),taikhoan:$('#taikhoan').val(),matkhau:$('#matkhau').val(),diachi:$('#diachi').val(),email:$('#email').val(),dienthoai:$('#sodienthoai').val()},function(data){
+
+		 										 alert("Đăng ký thành công");
+												 let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php';
+							           $('#form3').prop('action',url);
+							           $('#form3').submit()
+		 						      });
+										 }
+
+						      });
+								}
+					    }
+
+						}
+				   }
+
+				}
+			}
+
+
+
+
+		});
+	});
+
+	</script>
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

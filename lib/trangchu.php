@@ -7,6 +7,7 @@
 
   ";
   $result = mysqli_query($conn, $qr);
+   mysqli_close($conn);
   return $result;
   }
 
@@ -26,6 +27,7 @@
 
   ";
   $result = mysqli_query($conn, $qr);
+   mysqli_close($conn);
   return $result;
  }
 
@@ -33,6 +35,7 @@
  $conn = myConnect();
  $qr = "SELECT * FROM `tintuc` where idtheloai != '28' && idtheloai != '29' ORDER by idtin DESC LIMIT 0,3";
  $result = mysqli_query($conn, $qr);
+ mysqli_close($conn);
  return $result;
  }
 
@@ -40,6 +43,7 @@
  $conn = myConnect();
  $qr = "SELECT * FROM `tintuc` where idtheloai = '29' ORDER by idtin DESC LIMIT 0,1";
  $result = mysqli_query($conn, $qr);
+ mysqli_close($conn);
  return $result;
  }
 
@@ -47,6 +51,7 @@
  $conn = myConnect();
  $qr = "SELECT * FROM `tintuc` where idtheloai = '28' ORDER by idtin DESC LIMIT 0,1";
  $result = mysqli_query($conn, $qr);
+  mysqli_close($conn);
  return $result;
  }
 
@@ -54,6 +59,23 @@
  $conn = myConnect();
  $qr = "SELECT * FROM `thanhvien`";
  $result = mysqli_query($conn, $qr);
+  mysqli_close($conn);
+ return $result;
+ }
+
+ function geTaikhoan(){
+ $conn = myConnect();
+ $qr = "SELECT * FROM `users`";
+ $result = mysqli_query($conn, $qr);
+  mysqli_close($conn);
+ return $result;
+ }
+
+ function dangkytaikhoan($hoten,$taikhoan,$matkhau,$diachi,$dienthoai,$email){
+ $conn = myConnect();
+ $qr = "INSERT INTO `users`(`iduser`, `hoten`, `taikhoan`, `matkhau`, `diachi`, `dienthoai`, `email`, `ngaydangky`, `loaitaikhoan`) VALUES (NULL,'$hoten','$taikhoan','$matkhau','$diachi','$dienthoai','$email',NOW(),'0')";
+ $result = mysqli_query($conn, $qr);
+  mysqli_close($conn);
  return $result;
  }
 

@@ -27,7 +27,8 @@
         </div>
 
         <div class="container-login100-form-btn">
-          <input type="button" class="login100-form-btn"	id="btndangnhap" name="btndangnhap" value="Đăng nhập">
+          <input  class="login100-form-btn"	id="btndangnhap" name="btndangnhap" type="button" value="Đăng nhập">
+
 
         </div>
 
@@ -59,12 +60,13 @@ $(document).ready(function(){
       console.log($('#username').val());
       $.post("kiemtradangnhap.php",{pass:$('#pass').val(), username:$('#username').val()},function(data){
          if(data == "thanhcong"){
-           let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/index.php';
+           let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/quantri.php';
           $('#form1').prop('action',url);
           $('#form1').submit()
          }else {
            $("#spanloidangnhap").html(data);
            $(".loidangnhap").css("display","block");
+
          }
 
 
