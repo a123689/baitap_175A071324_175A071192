@@ -15,7 +15,7 @@ $user = mysqli_query($conn,$qr);
      $_SESSION["taikhoan"] = $row['taikhoan'];
      $_SESSION["matkhau"] = $row['matkhau'];
      $_SESSION["hoten"] = $row['hoten'];
-     echo "Đăng nhập thành công";
+     echo "thanhcong";
 
  }else{
 

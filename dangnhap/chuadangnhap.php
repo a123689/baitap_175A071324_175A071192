@@ -1,7 +1,7 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
-      <form id="form1" name="form1" method="post" action="" class="login100-form validate-form p-l-55 p-r-55 p-t-178 ">
+      <form id="form1" name="form1" method="post" action="#" class="login100-form validate-form p-l-55 p-r-55 p-t-178 ">
         <span class="login100-form-title">
           Đăng Nhập
         </span>
@@ -27,9 +27,14 @@
         </div>
 
         <div class="container-login100-form-btn">
-          <button class="login100-form-btn"	id="btndangnhap" name="btndangnhap" >
-            Đăng Nhập
-          </button>
+          <input type="button" class="login100-form-btn"	id="btndangnhap" name="btndangnhap" value="Đăng nhập">
+
+        </div>
+
+        <div class="loidangnhap" style="padding-top: 20px; color:#FF0000; display: none; text-align: center;">
+          <span id="spanloidangnhap" class="spanloidangnhap">
+           Lỗi đăng nhập?
+         </span>
         </div>
 
         <div class="flex-col-c p-t-170 p-b-40">
@@ -48,13 +53,21 @@
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 
-
 $(document).ready(function(){
     $("#btndangnhap").click(function(){
       console.log($('#pass').val());
       console.log($('#username').val());
       $.post("kiemtradangnhap.php",{pass:$('#pass').val(), username:$('#username').val()},function(data){
-       alert(data);
+         if(data == "thanhcong"){
+           let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/index.php';
+          $('#form1').prop('action',url);
+          $('#form1').submit()
+         }else {
+           $("#spanloidangnhap").html(data);
+           $(".loidangnhap").css("display","block");
+         }
+
+
       });
     });
 });

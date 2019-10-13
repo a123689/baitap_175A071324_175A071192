@@ -48,7 +48,13 @@
 </head>
 <body>
  <?php
-     require "chuadangnhap.php";
+
+     if(!isset($_SESSION["iduser"])){
+       require "chuadangnhap.php";
+     }else {
+       require "dadangnhap.php";
+     }
+
    ?>
 
 
@@ -69,20 +75,6 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
-  <script type="text/javascript">
 
-
-
-  $(document).ready(function(){
-      $("#btndangnhap").click(function(){
-        console.log($('#pass').val());
-        console.log($('#username').val());
-        $.post("kiemtradangnhap.php",{pass:$('#pass').val(), username:$('#username').val()},function(data){
-        
-        });
-      });
-  });
-
-  </script>
 </body>
 </html>
