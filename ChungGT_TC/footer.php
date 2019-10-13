@@ -97,34 +97,26 @@
                 </div>
                 <div class="col-md-6 col-lg-3">
                     <ul class="subnav btn">
-                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fab fa-facebook-square"></i>
-                                Facebook</a>
+                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                            <i  class="fab fa-facebook-square"></i>Facebook</a>
                         </li>
-                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fa fa-google-plus"></i>
-                                Google
-                                Plus</a>
+                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                            <i class="fab fa-google-plus-square"></i>GooglePlus</a>
                         </li>
-                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fa fa-youtube-play"></i>
-                                Youtube</a>
+                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                                <i class="fab fa-youtube"></i>  Youtube</a>
                         </li>
-                        <li> <a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fa fa-envelope"></i>
-                                E-mail</a>
+                        <li> <a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                            <i class="fa fa-envelope"></i> E-mail</a>
                         </li>
-                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fa fa-wechat"></i>zalo</a>
+                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                                <i class="fab fa-weixin"></i>zalo</a>
                         </li>
-                        <li> <a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fa fa-mortar-board"></i>
-                                E-office</a>
+                        <li> <a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                            <i class="fa fa-mortar-board"></i> E-office</a>
                         </li>
-                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button"><i
-                                    class="fa fa-users"></i>
-                                Tuyển
-                                dụng</a>
+                        <li><a href="#" class="btn btn-outline-info dropdown-item" role="button">
+                            <i class="fa fa-users"></i> Tuyển dụng</a>
                         </li>
                     </ul>
                 </div>

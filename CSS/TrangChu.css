@@ -1,175 +1,188 @@
 * {
-    margin: 0px;
-    padding: 0px;
-  }
-  body {
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px;
-    line-height: 1.7;
-  }
-  #header nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-    padding: 0px;
-    background-color: #024282 !important;
-
-  }
-  input.form-control.mr-sm-2 {
-    margin: 0px !important;
-  }
-  input.form-control.btn-transparent.border-0 {
-    width: 230px;
-  }.row.hBlock {
-    padding: 0px;
-  }
-  p.text-uppercase {
-    margin: 0px;
-    padding: 8px 0px;
-  }
-  div#navbarTogglerDemo01 {
-    padding: 0px 75px 0px 0px;
-  }
-  ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header2 {
-    padding: 0px 0px 0px 75px;
-  }
-  ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header2 li a {
-    padding: 3px 25px;
-    color: #ecf1f6;
-  }
-  ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header1 li {
-    color: #d3a526;
-  }
-  ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header1 li a {
-    color: #d3a526;
-  }
-  img.language {
-    padding: 10px 0px 10px 16px;
-  }
-  input.form-control.btn-transparent.border-0 {
-    background-color: #012b64;
-  }
-  button.btn.btn-transparent.btn-secondary.border-0 {
-    background-color: #012b64 !important;
-  }
-  ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header1 li a:hover{
-    text-decoration: underline;
-  }
-  ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header2 li a:hover{
-    text-decoration: underline;
-  }
-  /* hết phần header */
-
-  h1 {
-    margin: 0px;
-    color: #fff;
-    padding: 30px 0px 30px 30px;
-    font-size: 26px;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+}
+#header nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  padding: 0px;
+  background-color: #024282 !important;
+ 
+}
+input.form-control.mr-sm-2 {
+  margin: 0px !important;
+}
+input.form-control.btn-transparent.border-0 {
+  width: 230px;
+}.row.hBlock {
+  padding: 0px;
+}
+p.text-uppercase {
+  margin: 0px;
+  padding: 8px 0px;
+}
+div#navbarTogglerDemo01 {
+  padding: 0px 50px 0px 0px;
+}
+ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header2 {
+  padding: 0px 0px 0px 50px;
+}
+ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header2 li a {
+  padding: 8px 15px;
+  color: #ecf1f6;
+}
+ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header1 li {
+  color: #d3a526;
+}
+ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header1 li a {
+  color: #d3a526;
+}
+img.language {
+  padding: 10px 0px 10px 16px;
+}
+input.form-control.btn-transparent.border-0 {
+  background-color: #012b64;
+}
+button.btn.btn-transparent.btn-secondary.border-0 {
+  background-color: #012b64 !important;
+}
+ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header1 li a:hover{
+  text-decoration: underline;
+}
+ul.navbar-nav.mr-auto.mt-2.mt-lg-0.header2 li a:hover{
+  text-decoration: underline;
+}
+/* hết phần header */
+h1 {
+  margin: 0px;
+  color: #fff;
+  padding: 30px 0px 30px 30px;
+  font-size: 26px;
 }
 
 .image-title{
-  height: 90px;
-  background-color: rgba(1,2,3,0.4);
-  position: relative;
-  bottom: 90px;
-  line-height: 90px;
+height: 90px;
+background-color: rgba(1,2,3,0.4);
+position: relative;
+bottom: 90px;
+line-height: 90px;
 }
-  /* hết phần slide */
-  div#menu ul li {
-    padding: 0px 10px 0px 0px;
-  }
-  div#menu ul li a {
-    font-size: 16px;
-  }
-  div#menu ul li a:hover {
-    color: #ad9453;
-  }
-  div#menu ul li a .mot:hover {
-    color: #ad9453;
-  }
-  /* hết phần menu 1*/
-  .bg-dark {
-    background-color: #ffffff !important;
-  }
-  #menu nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-    padding: 0px 16px;
-  }
-  nav.navbar.navbar-dark.bg-dark {
-    padding: 0px 0px -4px 0px;
-    padding: 0px 16px;
-  }
-  #menu nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-    background-color: white !important;
-  }
-  ul.subnav li {
-    list-style: none;
-    padding: 10px 0px 0px;
-  }
-  .pos-f-t .row {
-    padding: 30px 0px;
-  }
-  ul.subnav li a {
-    color: #bbc2c9;
-  }
-  ul.subnav li a:hover {
-    color: #9a8a4f;
-    text-decoration: underline;
-  }
-  ul.subnav.btn li a {
-    color: #ffffff;
-    background-color: #42719f;
-    transition: color 0.5, background 0.5;
-  }
-  ul.subnav.btn li a:hover {
-    color: #42719f;
-    background-color: #ffffff;
-  }
-  a:hover {
-    text-decoration: none;
-  }
-  ul.subnav.btn li a {
-    text-align: left;
-    padding: 8px 66px 8px 10px;
-  }
-  ul.subnav.btn li a:hover {
-    text-decoration: none;
-  }
-  /* hết phần menu2 */
-  #footer {
-    background-color: #04427e;
-  }
-  ul.subnav li .bHeat {
-    color: #ffffff;
-  }
-  #copyright h5 {
-    margin: 0px;
-  }
-  #copyright p{
-    margin: 0px;
-  }
-  .bottonleft ul {
-    padding: 0px 30px;
-    font-weight: 600;
-  }
-  .bottonleft h6 {
-    font-size: 13px;
-    padding: 10px;
+/* hết phần slide */
+div#menu ul li {
+  padding: 0px 10px 0px 0px;
+}
+div#menu ul li a {
+  font-size: 16px;
+}
+div#menu ul li a:hover {
+  color: #ad9453;
+}
+div#menu ul li a .mot:hover {
+  color: #ad9453;
+}
+/* hết phần menu 1*/
+.bg-dark {
+background-color: #ffffff !important;
+}
+#menu nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+padding: 0px 16px;
+}
+nav.navbar.navbar-dark.bg-dark {
+padding: 0px 0px -4px 0px;
+padding: 0px 16px;
+}
+#menu nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+background-color: white !important;
+}
+ul.subnav li {
+list-style: none;
+padding: 10px 0px 0px;
+}
 
-  }
-  .upperleft {
-    padding: 24px;
-  }
-  .upperleft h6{
+ul.subnav li a {
+color: #bbc2c9;
+}
+ul.subnav li a:hover {
+color: #9a8a4f;
+text-decoration: underline;
+}
+ul.subnav.btn li a {
+color: #ffffff;
+background-color: #42719f;
+transition: color 0.5, background 0.5;
+}
+ul.subnav.btn li a:hover {
+color: #42719f;
+background-color: #ffffff;
+}
+a:hover {
+text-decoration: none;
+}
+ul.subnav.btn li a {
+text-align: left;
+padding: 8px 120px 8px 10px;
+}
+ul.subnav.btn li a:hover {
+text-decoration: none;
+}
+.mHead{
+  font-size: 20px;
+}
+.menu2{
+background-color: rgba(2,66,130,0.95);
+
+
+width: 1110px;
+height: 550px;
+padding: 40px 0px 20px 20px;
+}
+.triangle{
+display: flex;
+justify-content: center;
+}
+/* hết phần menu2 */
+#footer {
+  background-color: #04427e;
+}
+ul.subnav li .bHeat {
+  color: #ffffff;
+}
+#copyright h5 {
+  margin: 0px;
+}
+#copyright p{
+  margin: 0px;
+}
+.bottonleft ul {
+  padding: 0px 30px;
+  font-weight: 600;
+}
+.bottonleft h6 {
   font-size: 13px;
-  }
-  .upperleft p{
-    color: #ab924f;
-  }
-  div#footer .container .row {
-    padding: 15px 0px;
+  padding: 10px;
+
 }
-  /* hết phần footer*/
-  #slide2 .card {
-    margin: 0px 40px;
+.upperleft {
+  padding: 24px;
 }
-/* hết phần slide2*/
+.upperleft h6{
+font-size: 13px;
+}
+.upperleft p{
+  color: #ab924f;
+}
+div#footer .container .row {
+  padding: 15px 0px;
+}
+
+/* hết phần footer*/
+#copyright{
+  margin: 30px 0px;
+}
+/* hết phần copyright*/
 .card-body {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -209,26 +222,6 @@ ul.list-unstyled li {
   margin: 20px 0px 10px;
 }
 /* hết phần block1*/
-#copyright{
-  margin: 30px 0px;
-}
-/* hết phần copyright*/
-ul.item p {
-  margin: 0px !important;
-  color: #878787 !important;
-}
-ul.item li {
-  list-style: none;
-}
-h4 p {
-  margin: 0px !important;
-  background-color: #aa914d;
-  width: 60px;
-  height: 2px;
-  margin: 8px 0px 20px !important;
-}
-/* hết phần block2*/
-
 div#hide {
   font-size: 16px !important;
   padding: 15px 0px 13px 10px !important;
@@ -242,4 +235,85 @@ form.col-sm-3 {
 }
 .mb-3 {
   margin: 10px 0px 0px!important;
+}
+
+.slide3 {
+    background-color: #04427e;
+    height: 300px;
+}
+.slide3 b {
+    color: #aa914d;
+    font-size: 20px;
+    padding: 0px 0px 0px 300px;
+}
+.slide3 .container.blockOn {
+    padding: 10px 0px;
+}
+.item.col-sm-12 {
+    padding: 30px 10px 0px;
+}
+h5.text-center {
+    color: white;
+    font: 18px;
+    padding: 20px 0px;
+
+}
+.slide3 p.text-center {
+    color: white;
+}
+
+p.text-center {
+    text-align: center!important;
+    font-size: 14px;
+}
+.slide3 .title{
+    width: 300px;
+    height: 80px;
+}
+.owl-prev, .owl-next{
+    position: absolute;
+}
+.owl-prev{
+    left: 0px;
+    top: 80px;
+}
+.owl-next{
+    right: 0px;
+    top: 80px;
+}
+.owl-prev i{
+    color: white;
+}
+.owl-next i{
+    color: white;
+}
+.slide3 {
+  margin: 30px 0px 30px 0px;
+}
+ /* hết phần slide3 */
+ ul.item p {
+margin: 0px !important;
+color: #878787 !important;
+}
+ul.item li {
+list-style: none;
+}
+h4 p {
+margin: 0px !important;
+background-color: #aa914d;
+width: 60px;
+height: 2px;
+margin: 8px 0px 20px !important;
+}
+/* hết phần block2*/
+.tinnhan{
+  width: 350px;
+  background-color: #ffffff;
+  justify-content: flex-end;
+  padding-right: 10px;
+  position: fixed;
+  /*position: absolute;*/
+  bottom: 0;
+  right: 0;
+  z-index: 9;
 }
