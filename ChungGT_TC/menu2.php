@@ -13,8 +13,8 @@
     <div class="container hBlock1">
         <div class="menu2">
             <div class="row">
-                <div class="col-lg-6 row">
-                    <div class="col-lg-6">
+                <div class="col-lg-9 row">
+                    <div class="col-lg-4">
                         <ul class="subnav">
                             <li><a href="" class="mHead">Giới thiệu chung</a></li>
 
@@ -32,7 +32,7 @@
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Phát triển bền vững</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <ul class="subnav ">
                             <li><a href="" class="mHead">Tuyển sinh</a></li>
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Các bậc đào tạo</a></li>
@@ -46,7 +46,8 @@
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Xét tuyển trực tuyến</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-6">
+
+                    <div class="col-lg-4">
                         <ul class="subnav">
                             <li><a href="" class="mHead">Hợp tác doanh nghiệp</a></li>
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Giới thiệu việc làm</a></li>
@@ -61,7 +62,7 @@
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Liên kết - Hợp tác</a></li>
                         </ul>
                     </div>
-                    <div class=" col-lg-6">
+                    <div class=" col-lg-4">
                         <ul class="subnav">
                             <li><a href="" class="mHead">Nghiên cứu</a></li>
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Hoạt động khoa học công nghệ</a>
@@ -72,24 +73,24 @@
 
                             <li><a href=""><i class="fa fa-angle-double-right"></i>Công bố khoa học</a></li>
                         </ul>
+                    </div
+                    <div class="col-lg- 4">
+                        <ul class="subnav">
+                            <li><a href="" class="mHead">Đào tạo</a></li>
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Khoa học sức khỏe</a></li>
+
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Kinh tế - Quản trị</a></li>
+
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Kỹ thuật - Công nghệ</a></li>
+
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Khoa học xã hội - Nhân văn</a>
+                            </li>
+
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Mỹ thuật - Nghệ thuật</a></li>
+
+                            <li><a href=""><i class="fa fa-angle-double-right"></i>Khối đào tạo quốc tế</a></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="col-lg-3 ">
-                    <ul class="subnav">
-                        <li><a href="" class="mHead">Đào tạo</a></li>
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Khoa học sức khỏe</a></li>
-
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Kinh tế - Quản trị</a></li>
-
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Kỹ thuật - Công nghệ</a></li>
-
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Khoa học xã hội - Nhân văn</a>
-                        </li>
-
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Khối Mỹ thuật - Nghệ thuật</a></li>
-
-                        <li><a href=""><i class="fa fa-angle-double-right"></i>Khối đào tạo quốc tế</a></li>
-                    </ul>
                 </div>
                 <div class="col-lg-3">
                     <ul class="subnav btn">

@@ -9,7 +9,7 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
            <?php
-               $danhmuc = getDanhmuc();
+               $danhmuc = getBondanhmuc();
                while ($row = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC)) {
 
                ?>

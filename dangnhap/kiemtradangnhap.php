@@ -21,12 +21,11 @@ $user = mysqli_query($conn,$qr);
        echo "thanhcong";
      }else{
 
-
+        echo "Tài khoản hoặc mật khẩu không chính xác";
      }
 
-
  }else {
-   echo "Tài khoản hoặc mật khẩu không chính xác";
+     echo "Tài khoản hoặc mật khẩu không chính xác";
  }
 
 mysqli_close($conn);
