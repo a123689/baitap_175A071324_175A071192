@@ -7,7 +7,9 @@ if(isset($_SESSION["iduser"])){
 
 ?>
 
-
+<?php
+ if($_SESSION["loaitaikhoan"] == 0){
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -33,7 +35,7 @@ if(isset($_SESSION["iduser"])){
         <form id="formthemdanhmuc" name="formthemdanhmuc" method="post" action="">
           <table width="500" border="1" cellspacing="0" cellpadding="0">
             <tr>
-            <td colspan="2">THÊM THỂ LOẠI</td>
+            <td colspan="2">THÊM DANH MỤC</td>
           </tr>
           <tr>
             <td>Tên danh mục</td>
@@ -67,9 +69,9 @@ if(isset($_SESSION["iduser"])){
         var regextendanhmuc = /^[a-zA-Z][A-z|0-9|\W|\s]{4,49}/;
 
         if(!regextendanhmuc.test(tendanhmuc)){
-          alert('Tên danh mục phải từ 5 đến 50 ký tự và bắt đầu bằng ký tự');
+          alert('Tên danh mục phải từ 5 đến 50 ký tự và bắt đầu bằng chữ');
         }else if (!regexicon.test(icon)) {
-          alert('Icon phải từ 5 đến 50 ký tự, không dấu và bắt đầu bằng 1 ký tự');
+          alert('Icon phải từ 5 đến 50 ký tự, không dấu và bắt đầu bằng chữ');
         }else {
           $.post("kiemtrathemdanhmuc.php",{tendanhmuc:$('#themtendanhmuc').val(), icon:$('#themicon').val()},function(data){
              if(data == "true"){
@@ -80,7 +82,7 @@ if(isset($_SESSION["iduser"])){
              }else {
                alert('Thêm thất bại');
              }
-alert(data);
+
           });
         }
 
@@ -91,7 +93,13 @@ alert(data);
   </script>
   </body>
 </html>
+<?php
+}else {
 
+  header('location:./quantri.php');
+
+}
+ ?>
 <?php
 }else {
   header("location:http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php");

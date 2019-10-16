@@ -99,18 +99,19 @@
 			var hoten = $('#hoten').val();
 			var diachi = $('#diachi').val();
 			var taikhoan = $('#taikhoan').val();
+			 var regextaikhoan = /^[a-zA-Z][A-z|0-9|\W|\s]{4,19}/;
 			if(matkhau == '' || nhaplaimatkhau == '' || email == '' || sodienthoai == '' || hoten == '' || diachi == ''){
 				$("#spanloidangnhap").html("Bạn phải nhập đầy đủ thông tin");
 			  $(".loidangky").css("display","block");
 			}else {
 
-				if(taikhoan.length < 6){
-					$("#spanloidangnhap").html("Tài khoản phải dài hơn 5 kí tự");
+				if(!regextaikhoan.test(taikhoan)){
+					$("#spanloidangnhap").html("Tài khoản phải từ 5 đến 20 ký tự, bắt đầu bằng chữ cái");
 					$(".loidangky").css("display","block");
 				}else {
-					var filter = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/;
+					var filter = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 					if(!filter.test(matkhau)){
-						$("#spanloidangnhap").html("Mật khẩu phải chứa 2 chữ in hoa, có kí tự đặc biệt, 2 kí tự số, kí tực thường và lớn hơn 8 kí tự. VD: AA@99sds");
+						$("#spanloidangnhap").html("Mật khẩu phải ít nhất 8 ký tự, ít nhất một chữ cái viết hoa, môt chữ cái viết thường, một số, một ký tự đặc biệt");
 						$(".loidangky").css("display","block");
 					}else {
 						if(matkhau != nhaplaimatkhau){

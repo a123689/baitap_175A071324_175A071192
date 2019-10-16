@@ -3,10 +3,11 @@ ob_start();
 session_start();
 require "../lib/db_connect.php";
 require "../lib/trangchu.php";
-if(!isset($_SESSION["iduser"])){
-}
-?>
 
+?>
+<?php
+ if(isset($_SESSION["iduser"]) && $_SESSION["loaitaikhoan"] == 0){
+?>
 <?php
  $iddanhmuc = $_GET["iddanhmuc"]; settype($iddanhmuc,"int");
  $conn = myConnect();
@@ -15,4 +16,6 @@ if(!isset($_SESSION["iduser"])){
 
  $user = mysqli_query($conn,$qr);
  header("location:listdanhmuc.php");
+ ?>
+<?php }
  ?>

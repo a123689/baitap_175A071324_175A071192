@@ -18,6 +18,8 @@ $user = mysqli_query($conn,$qr);
        $_SESSION["taikhoan"] = $row['taikhoan'];
        $_SESSION["matkhau"] = $row['matkhau'];
        $_SESSION["hoten"] = $row['hoten'];
+       $_SESSION["iddanhmuc"] = $row['iddanhmuc'];
+       $_SESSION["loaitaikhoan"] = $row['loaitaikhoan'];
        echo "thanhcong";
      }else{
 

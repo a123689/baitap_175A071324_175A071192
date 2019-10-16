@@ -6,7 +6,7 @@
 if(isset($_SESSION["iduser"])){
  ?>
  <?php
-  if($_SESSION["loaitaikhoan"] == 0){
+  if($_SESSION["loaitaikhoan"] == 0 || $_SESSION["loaitaikhoan"] == 2 ){
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,35 +34,43 @@ if(isset($_SESSION["iduser"])){
           <form id="form1" name="form1" method="post" action="">
             <table width="500" border="1" cellspacing="0" cellpadding="0">
               <tr>
-                <td colspan="6">DANH SÁCH DANH MỤC</td>
+                <td colspan="6">DANH SÁCH THỂ LOẠI</td>
               </tr>
               <tr>
-                <td>Mã danh mục</td>
-                <td>Tên danh mục</td>
-
-                <td>Icon</td>
+                <td>Mã thể loại</td>
+                <td>Tên thẻ loại</td>
+                <td>Danh mục</td>
 
                 <td><a href="themdanhmuc.php">Thêm</a></td>
               </tr>
           <?php
-			  $danhmuc = getDanhmuc();
-			  while( $row_danhmuc = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC) ){
+          $theloai = null;
+          if($_SESSION["iddanhmuc"] == 0){
+            $theloai = getAllTheloai();
+          }else {
+
+            $theloai = getTheloai($_SESSION["iddanhmuc"]);
+          }
+
+			  while( $row_theloai = mysqli_fetch_array($theloai,MYSQLI_ASSOC) ){
+
           ob_start();// cho tất cả html thành 1 biến
 		  ?>
 
               <tr>
-                <td>{iddanhmuc}</td>
+                <td>{idtheloai}</td>
+                <td>{tentheloai}</td>
                 <td>{tendanhmuc}</td>
-                <td>{icon}</td>
 
-                <td><a href="suadanhmuc.php?iddanhmuc={iddanhmuc}">Sửa</a>- <a id="xoa"onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoadanhmuc.php?iddanhmuc={iddanhmuc}">Xóa</a></td>
+                <td><a href="suadanhmuc.php?idtheloai={idtheloai}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoadanhmuc.php?idtheloai={idtheloai}">Xóa</a></td>
               </tr>
 
               <?php
 					$s = ob_get_clean();
-					$s = str_replace("{iddanhmuc}", $row_danhmuc["iddanhmuc"], $s); // thay thế
-					$s = str_replace("{tendanhmuc}", $row_danhmuc["tendanhmuc"], $s);
-					$s = str_replace("{icon}", $row_danhmuc["icon"], $s);
+					$s = str_replace("{idtheloai}", $row_theloai["idtheloai"], $s); // thay thế
+					$s = str_replace("{tentheloai}", $row_theloai["tentheloai"], $s);
+
+					$s = str_replace("{tendanhmuc}", $row_theloai["tendanhmuc"], $s);
 					echo $s;
 			 }
 			  ?>

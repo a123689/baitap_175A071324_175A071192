@@ -6,8 +6,9 @@ require "../lib/trangchu.php";
 if(isset($_SESSION["iduser"])){
 
 ?>
-
-
+<?php
+ if($_SESSION["loaitaikhoan"] == 0){
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -30,46 +31,62 @@ if(isset($_SESSION["iduser"])){
     </tr>
     <tr>
       <td><p>&nbsp;</p>
-        <form id="formthemdanhmuc" name="formthemdanhmuc" method="post" action="">
+        <form id="formthemtaikhoan" name="formthemtaikhoan" method="post" action="">
           <table width="500" border="1" cellspacing="0" cellpadding="0">
             <tr>
             <td colspan="2">THÊM TÀI KHOẢN</td>
           </tr>
           <tr>
             <td>Họ tên</td>
-            <td><label for="themtendanhmuc"></label>
-            <input type="text" name="themtendanhmuc" id="themtendanhmuc" /></td>
+            <td><label for="hoten"></label>
+            <input type="text" name="hoten" id="hoten" /></td>
           </tr>
           <tr>
             <td>Tài khoản</td>
-            <td><label for="themtendanhmuc"></label>
-            <input type="text" name="themtendanhmuc" id="themtendanhmuc" /></td>
+            <td><label for="taikhoan"></label>
+            <input type="text" name="taikhoan" id="taikhoan" /></td>
           </tr>
           <tr>
             <td>Mật khẩu</td>
-            <td><label for="themtendanhmuc"></label>
-            <input type="text" name="themtendanhmuc" id="themtendanhmuc" /></td>
+            <td><label for="matkhau"></label>
+            <input type="password" name="matkhau" id="matkhau" /></td>
+          </tr>
+          <tr>
+            <td>Nhập lại mật khẩu</td>
+            <td><label for="nhaplaimatkhau"></label>
+            <input type="password" name="nhaplaimatkhau" id="nhaplaimatkhau" /></td>
           </tr>
           <tr>
             <td>Địa chỉ</td>
-            <td><label for="themtendanhmuc"></label>
-            <input type="text" name="themtendanhmuc" id="themtendanhmuc" /></td>
+            <td><label for="diachi"></label>
+            <input type="text" name="diachi" id="diachi" /></td>
           </tr>
           <tr>
             <td>Điện thoại</td>
-            <td><label for="themtendanhmuc"></label>
-            <input type="text" name="themtendanhmuc" id="themtendanhmuc" /></td>
+            <td><label for="dienthoai"></label>
+            <input type="text" name="dienthoai" id="dienthoai" /></td>
           </tr>
           <tr>
             <td>Email</td>
-            <td><label for="themtendanhmuc"></label>
-            <input type="text" name="themtendanhmuc" id="themtendanhmuc" /></td>
+            <td><label for="email"></label>
+            <input type="text" name="email" id="email" /></td>
           </tr>
           <tr>
-            <td>Quyền truy cập</td>
-            <td><label for="themicon"></label>
-            <input type="text" name="themicon" id="themicon" /></td>
-          </tr>
+                <td>Quyền truy cập</td>
+                <td><label for="iddanhmuc"></label>
+                  <select name="iddanhmuc" id="iddanhmuc">
+                  <?php
+				           $danhmuc = getDanhmuc();
+				            while($row_danhmuc = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC) ){
+
+				  ?>
+                  <option value="<?php echo $row_danhmuc['iddanhmuc'] ?>"><?php echo $row_danhmuc['tendanhmuc'] ?></option>
+                  <?php
+				  }
+				  ?>
+
+                </select></td>
+              </tr>
 
           <tr>
             <td>&nbsp;</td>
@@ -84,30 +101,77 @@ if(isset($_SESSION["iduser"])){
   </table>
 <script type="text/javascript">
   $(document).ready(function(){
+
       $("#btnThem").click(function(){
-        var tendanhmuc = $('#themtendanhmuc').val();
-        var icon = $('#themicon').val();
+        var hoten = $('#hoten').val();
+        var taikhoan = $('#taikhoan').val();
+        var matkhau = $('#matkhau').val();
+        var diachi = $('#diachi').val();
+        var dienthoai = $('#dienthoai').val();
+        var email = $('#email').val();
+        var nhaplaimatkhau = $('#nhaplaimatkhau').val();
+        var regexhoten = /^[a-zA-Z][A-z|0-9|\W|\s]{4,49}/;
+        var regextaikhoan = /^[a-zA-Z][A-z|0-9|\W|\s]{4,19}/;
+        var regexmatkhau = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+        var regexdiachi = /^[a-zA-Z][A-z|0-9|\W|\s]{9,99}/;
+        var regexemail =  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+        var regexdienthoai = /((09|03|07|08|05)+([0-9]{8})\b)/;
+        var quyentruycap =  $('#iddanhmuc').val();
 
-        var regexicon = /^[a-zA-Z][A-z|\-|\s]{4,49}/;
-        var regextendanhmuc = /^[a-zA-Z][A-z|0-9|\W|\s]{4,49}/;
 
-        if(!regextendanhmuc.test(tendanhmuc)){
-          alert('Tên danh mục phải từ 5 đến 50 ký tự và bắt đầu bằng ký tự');
-        }else if (!regexicon.test(icon)) {
-          alert('Icon phải từ 5 đến 50 ký tự, không dấu và bắt đầu bằng 1 ký tự');
+        if(hoten == "" || taikhoan == "" || matkhau == "" || diachi == "" || dienthoai == "" || email == ""){
+            alert('Bạn phải nhập đầy đủ thông tin');
         }else {
-          $.post("kiemtrathemdanhmuc.php",{tendanhmuc:$('#themtendanhmuc').val(), icon:$('#themicon').val()},function(data){
-             if(data == "true"){
-               alert('Thêm thành công');
-               let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/listdanhmuc.php';
-              $('#formthemdanhmuc').prop('action',url);
-              $('#formthemdanhmuc').submit()
-             }else {
-               alert('Thêm thất bại');
-             }
-alert(data);
-          });
+          if(!regexhoten.test(hoten)){
+            alert('Họ tên phải từ 5 đến 50 ký tự');
+          }else if (!regextaikhoan.test(taikhoan)) {
+            alert('Tài khoản phải từ 5 đến 20 ký tự, bắt đầu bằng chữ');
+          }else if (!regexmatkhau.test(matkhau)) {
+              alert('Mật khẩu phải ít nhất 8 ký tự, ít nhất một chữ cái viết hoa, môt chữ cái viết thường, một số, một ký tự đặc biệt');
+          }else if (!regexdiachi.test(diachi)) {
+            alert('Địa chỉ phải từ 10 đến 100 ký tự');
+          }else if (!regexdienthoai.test(dienthoai)) {
+            alert('Số điện thoại không hợp lệ');
+          }else if (!regexemail.test(email)) {
+            alert('Email không hợp lệ');
+          }
+          else {
+            if(matkhau != nhaplaimatkhau){
+              alert("Nhập lại mật khẩu không chính xác");
+            }else {
+              $.post("../dangnhap/kiemtrataikhoan.php",{username:$('#taikhoan').val()},function(data){
+
+                if(data == "false"){
+                  alert("Tài khoản đã tồn tại");
+                }else {
+                  $.post("../dangnhap/kiemtraemail.php",{email:$('#email').val()},function(data){
+
+                    if(data == "false"){
+                      alert("Email đã được sử dụng");
+                    }else {
+                      $.post("kiemtrathemtaikhoan.php",{hoten:$('#hoten').val(),taikhoan:$('#taikhoan').val(),
+                      matkhau:$('#matkhau').val(),diachi:$('#diachi').val(),dienthoai:$('#dienthoai').val(),email:$('#email').val(),quyentruycap:$('#iddanhmuc').val()},function(data){
+                         if(data == "true"){
+                           alert('Thêm thành công');
+                           let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/listtaikhoan.php';
+                          $('#formthemtaikhoan').prop('action',url);
+                          $('#formthemtaikhoan').submit()
+                         }else {
+                           alert('Thêm thất bại');
+                         }
+
+                      });
+                    }
+                    });
+
+                }
+              });
+            }
+
+
+           }
         }
+
 
 
       });
@@ -116,7 +180,13 @@ alert(data);
   </script>
   </body>
 </html>
+<?php
+}else {
 
+  header('location:./quantri.php');
+
+}
+ ?>
 <?php
 }else {
   header("location:http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php");

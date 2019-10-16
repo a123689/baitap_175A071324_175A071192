@@ -5,6 +5,9 @@
  require "../lib/trangchu.php";
 if(isset($_SESSION["iduser"])){
  ?>
+ <?php
+  if($_SESSION["loaitaikhoan"] == 0){
+ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -31,7 +34,7 @@ if(isset($_SESSION["iduser"])){
           <form id="form1" name="form1" method="post" action="">
             <table width="500" border="1" cellspacing="0" cellpadding="0">
               <tr>
-                <td colspan="6">DANH SÁCH THỂ LOẠI</td>
+                <td colspan="6">DANH SÁCH TÀI KHOẢN</td>
               </tr>
               <tr>
                 <td>Mã tài khoản</td>
@@ -50,6 +53,7 @@ if(isset($_SESSION["iduser"])){
           <?php
 			  $taikhoan= getTaikhoan();
 			  while( $row_taikhoan = mysqli_fetch_array($taikhoan,MYSQLI_ASSOC) ){
+
           ob_start();// cho tất cả html thành 1 biến
 		  ?>
 
@@ -65,7 +69,7 @@ if(isset($_SESSION["iduser"])){
                 <td>{quyentruycap}</td>
                 <td>{loaitaikhoan}</td>
 
-                <td><a href="suadanhmuc.php?iddanhmuc={iddanhmuc}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoadanhmuc.php?iddanhmuc={iddanhmuc}">Xóa</a></td>
+                <td><a href="suataikhoan.php?idtaikhoan={idtaikhoan}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoataikhoan.php?idtaikhoan={idtaikhoan}">Xóa</a></td>
               </tr>
 
               <?php
@@ -79,7 +83,7 @@ if(isset($_SESSION["iduser"])){
           $s = str_replace("{email}", $row_taikhoan["email"], $s);
           $s = str_replace("{ngaydangky}", $row_taikhoan["ngaydangky"], $s);
           $s = str_replace("{loaitaikhoan}", $row_taikhoan["loaitaikhoan"], $s);
-          $s = str_replace("{quyentruycap}", $row_taikhoan["tendanhmuc"], $s);
+          $s = str_replace("{quyentruycap}", $row_taikhoan["iddanhmuc"], $s);
 
 					echo $s;
 			}
@@ -95,6 +99,13 @@ if(isset($_SESSION["iduser"])){
 
     </body>
 </html>
+<?php
+}else {
+
+  header('location:./quantri.php');
+
+}
+ ?>
 <?php
 }else {
   header("location:http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php");
