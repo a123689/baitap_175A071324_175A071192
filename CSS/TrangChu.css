@@ -90,65 +90,63 @@ div#menu ul li a .mot:hover {
 }
 /* hết phần menu 1*/
 .bg-dark {
-background-color: #ffffff !important;
+  background-color: #ffffff !important;
 }
 #menu nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-padding: 0px 16px;
+  padding: 0px 16px;
 }
 nav.navbar.navbar-dark.bg-dark {
-padding: 0px 0px -4px 0px;
-padding: 0px 16px;
+  padding: 0px 0px -4px 0px;
+  padding: 0px 16px;
 }
 #menu nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-background-color: white !important;
+  background-color: white !important;
 }
 ul.subnav li {
-list-style: none;
-padding: 10px 0px 0px;
+  list-style: none;
+  padding: 10px 0px 0px;
 }
 
 ul.subnav li a {
-color: #bbc2c9;
+  color: #bbc2c9;
 }
 ul.subnav li a:hover {
-color: #9a8a4f;
-text-decoration: underline;
+  color: #9a8a4f;
+  text-decoration: underline;
 }
 ul.subnav.btn li a {
-color: #ffffff;
-background-color: #42719f;
-transition: color 0.5, background 0.5;
+  color: #ffffff;
+  background-color: #42719f;
+  transition: color 0.5, background 0.5;
 }
 ul.subnav.btn li a:hover {
-color: #42719f;
-background-color: #ffffff;
+  color: #42719f;
+  background-color: #ffffff;
 }
 a:hover {
-text-decoration: none;
+  text-decoration: none;
 }
 ul.subnav.btn li a {
-text-align: left;
-padding: 8px 120px 8px 10px;
+  text-align: left;
+  padding: 8px 120px 8px 10px;
 }
 ul.subnav.btn li a:hover {
-text-decoration: none;
+  text-decoration: none;
 }
 .mHead{
-  font-size: 20px;
+    font-size: 20px;
 }
 .menu2{
-background-color: rgba(2,66,130,0.95);
-
-
-width: 1110px;
-height: 550px;
-padding: 40px 0px 20px 20px;
+  background-color: rgba(2,66,130,0.95);
+  position: absolute;
 }
 .triangle{
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
 /* hết phần menu2 */
+
 #footer {
   background-color: #04427e;
 }

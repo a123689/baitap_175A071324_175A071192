@@ -12,6 +12,7 @@
     unset($_SESSION["matkhau"]);
     unset($_SESSION["hoten"]);
     unset($_SESSION["iddanhmuc"]);
+    unset($_SESSION["loaitaikhoan"]);
   }
 ?>
 

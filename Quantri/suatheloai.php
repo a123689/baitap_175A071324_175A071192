@@ -7,11 +7,11 @@ if(isset($_SESSION["iduser"])){
 
 ?>
 <?php
- if($_SESSION["loaitaikhoan"] == 0){
+ if($_SESSION["loaitaikhoan"] == 2){
 ?>
 <?php
- $iddanhmuc = $_GET["iddanhmuc"]; settype($iddanhmuc,"int");
- $rowchitiet = chitietdanhmuc($iddanhmuc);
+ $idtheloai= $_GET["idtheloai"]; settype($idtheloai,"int");
+ $rowchitiet = chitiettheloai($idtheloai);
  ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -39,19 +39,15 @@ if(isset($_SESSION["iduser"])){
         <form id="formthemdanhmuc" name="formthemdanhmuc" method="post" action="">
           <table width="500" border="1" cellspacing="0" cellpadding="0">
             <tr>
-            <td colspan="2">SỬA DANH MỤC</td>
+            <td colspan="2">SỬA THỂ LOẠI</td>
           </tr>
           <tr>
-            <td>Tên danh mục</td>
-            <td><label for="suatendanhmuc"></label>
-            <input type="text" value="<?php echo $rowchitiet['tendanhmuc'] ?>" name="suatendanhmuc" id="suatendanhmuc" /></td>
+            <td>Tên thể loại</td>
+            <td><label for="suatentheloai"></label>
+            <input type="text" value="<?php echo $rowchitiet['tentheloai'] ?>" name="suatentheloai" id="suatentheloai" /></td>
           </tr>
 
-          <tr>
-            <td>Icon</td>
-            <td><label for="suaicon"></label>
-            <input type="text" value="<?php echo $rowchitiet['icon'] ?>" name="themicon" id="suaicon" /></td>
-          </tr>
+
           <tr>
             <td>&nbsp;</td>
             <td><input  type="button" name="btnSua" id="btnSua" value="Sửa" /></td>
@@ -66,27 +62,23 @@ if(isset($_SESSION["iduser"])){
 <script type="text/javascript">
   $(document).ready(function(){
       $("#btnSua").click(function(){
-        var tendanhmuc = $('#suatendanhmuc').val();
-        var icon = $('#suaicon').val();
+        var tendanhmuc = $('#suatentheloai').val();
 
-        var regexicon = /^[a-zA-Z][A-z|\-|\s]{4,49}/;
         var regextendanhmuc = /^[a-zA-Z][A-z|0-9|\W|\s]{4,49}/;
 
         if(!regextendanhmuc.test(tendanhmuc)){
           alert('Tên danh mục phải từ 5 đến 50 ký tự và bắt đầu bằng ký tự');
-        }else if (!regexicon.test(icon)) {
-          alert('Icon phải từ 5 đến 50 ký tự, không dấu và bắt đầu bằng 1 ký tự');
         }else {
-          $.post("kiemtrasuadanhmuc.php",{tendanhmuc:$('#suatendanhmuc').val(), icon:$('#suaicon').val(),iddanhmuc:"<?php echo $rowchitiet['iddanhmuc'];?>"},function(data){
+          $.post("kiemtrasuatheloai.php",{tentheloai:$('#suatentheloai').val(),idtheloai:"<?php echo $rowchitiet['idtheloai'];?>"},function(data){
              if(data == "true"){
                alert('Sửa thành công');
-               let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/listdanhmuc.php';
+               let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/Quantri/listtheloai.php';
               $('#formthemdanhmuc').prop('action',url);
               $('#formthemdanhmuc').submit()
              }else {
                alert('Sửa thất bại');
              }
-
+             
           });
         }
 

@@ -14,9 +14,26 @@
    mysqli_close($conn);
   return $result;
   }
+
+  function DanhSachTheLoai(){
+  $conn = myConnect();
+  $qr = "SELECT * FROM `theloai`";
+  $result = mysqli_query($conn, $qr);
+   mysqli_close($conn);
+  return $result;
+  }
+
   function chitietdanhmuc($iddanhmuc){
     $conn = myConnect();
       $qr = "SELECT * FROM `danhmuc` WHERE iddanhmuc = '$iddanhmuc'";
+    $result = mysqli_query($conn,$qr);
+    mysqli_close($conn);
+    return mysqli_fetch_array($result,MYSQLI_ASSOC);
+  }
+
+  function chitiettheloai($idtheloai){
+    $conn = myConnect();
+      $qr = "SELECT * FROM `theloai` WHERE idtheloai = '$idtheloai'";
     $result = mysqli_query($conn,$qr);
     mysqli_close($conn);
     return mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -132,6 +149,15 @@ $result = mysqli_query($conn, $qr);
 return $result;
 }
 
+function suaTheloai($tentheloai,$idtheloai)
+{
+ $conn = myConnect();
+ $qr = "UPDATE `theloai` SET `tentheloai`='$tentheloai' WHERE `idtheloai`='$idtheloai'";
+ $result = mysqli_query($conn,$qr);
+ mysqli_close($conn);
+ return $result;
+}
+
 function getAllTheloai(){
 $conn = myConnect();
 $qr = "SELECT tl.idtheloai,tl.tentheloai,dm.tendanhmuc,dm.iddanhmuc FROM theloai as tl, danhmuc as dm WHERE tl.iddanhmuc = dm.iddanhmuc";
@@ -142,15 +168,15 @@ return $result;
 
 function getTintuc($iddanhmuc){
 $conn = myConnect();
-$qr = "select tt.* from tintuc as tt, theloai as tl where tt.idtheloai = tl.idtheloai and tl.iddanhmuc = '$iddanhmuc'";
+$qr = "SELECT t.idtin,t.tieude,t.tomtat,t.hinhanh,tl.tentheloai,dm.tendanhmuc,dm.iddanhmuc FROM tintuc as t, theloai as tl,danhmuc as dm WHERE t.idtheloai = tl.idtheloai and tl.iddanhmuc = dm.iddanhmuc and dm.iddanhmuc = '$iddanhmuc'";
 $result = mysqli_query($conn, $qr);
  mysqli_close($conn);
 return $result;
 }
 
-function getAllTintuc($iddanhmuc){
+function getAllTintuc(){
 $conn = myConnect();
-$qr = "select * from tintuc ";
+$qr = "SELECT t.idtin,t.tieude,t.tomtat,t.hinhanh,tl.tentheloai,dm.tendanhmuc,dm.iddanhmuc FROM tintuc as t, theloai as tl,danhmuc as dm WHERE t.idtheloai = tl.idtheloai and tl.iddanhmuc = dm.iddanhmuc";
 $result = mysqli_query($conn, $qr);
  mysqli_close($conn);
 return $result;
@@ -167,6 +193,48 @@ function chitiettaikhoan($idtaikhoan){
 function themTheloai($tentheloai,$iddanhmuc){
   $conn = myConnect();
   $qr = "INSERT INTO `theloai`(`idtheloai`,`tentheloai`,`iddanhmuc`) VALUES (NULL,'$tentheloai','$iddanhmuc')";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function themTintuc($tieude,$tomtat,$hinhanh,$idtheloai){
+  $conn = myConnect();
+  $qr = "INSERT INTO `tintuc`(`idtin`,`idtheloai`,`tieude`,`tomtat`,`hinhanh`) VALUES (NULL,'$idtheloai','$tieude','$tomtat','$hinhanh')";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+
+
+function getTheloaibydanhmuc($iddanhmuc){
+$conn = myConnect();
+$qr = "SELECT * FROM `theloai` WHERE iddanhmuc = '$iddanhmuc'";
+$result = mysqli_query($conn, $qr);
+ mysqli_close($conn);
+return $result;
+}
+
+function chitiettin($idtin){
+  $conn = myConnect();
+    $qr = "SELECT * FROM `tintuc` WHERE idtin = '$idtin'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return mysqli_fetch_array($result,MYSQLI_ASSOC);
+}
+
+function suaTintucCohinhanh($idtin,$tieude,$tomtat,$hinhanh,$idtheloai){
+  $conn = myConnect();
+  $qr = "UPDATE `tintuc` SET `idtheloai`='$idtheloai',`tieude`='$tieude',`tomtat`='$tomtat',`hinhanh`='$hinhanh' WHERE `idtin`='$idtin'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function suaTintucKhongcohinhanh($idtin,$tieude,$tomtat,$idtheloai){
+  $conn = myConnect();
+  $qr = "UPDATE `tintuc` SET `idtheloai`='$idtheloai',`tieude`='$tieude',`tomtat`='$tomtat' WHERE `idtin`='$idtin'";
   $result = mysqli_query($conn,$qr);
   mysqli_close($conn);
   return $result;

@@ -34,43 +34,47 @@ if(isset($_SESSION["iduser"])){
           <form id="form1" name="form1" method="post" action="">
             <table width="500" border="1" cellspacing="0" cellpadding="0">
               <tr>
-                <td colspan="6">DANH SÁCH THỂ LOẠI</td>
+                <td colspan="6">DANH SÁCH TIN</td>
               </tr>
               <tr>
-                <td>Mã thể loại</td>
-                <td>Tên thẻ loại</td>
+                <td>Mã tin</td>
+                <td>Tin tức</td>
                 <td>Danh mục</td>
-
-                <td><a href="themdanhmuc.php">Thêm</a></td>
+                <td>Thể loại</td>
+                <td><a href="themtintuc.php">Thêm</a></td>
               </tr>
           <?php
-          $theloai = null;
+          $tintuc = null;
           if($_SESSION["iddanhmuc"] == 0){
-            $theloai = getAllTheloai();
+            $tintuc = getAllTintuc();
           }else {
 
-            $theloai = getTheloai($_SESSION["iddanhmuc"]);
+            $tintuc = getTintuc($_SESSION["iddanhmuc"]);
           }
 
-			  while( $row_theloai = mysqli_fetch_array($theloai,MYSQLI_ASSOC) ){
+			  while( $row_tintuc = mysqli_fetch_array($tintuc,MYSQLI_ASSOC) ){
 
           ob_start();// cho tất cả html thành 1 biến
 		  ?>
 
               <tr>
-                <td>{idtheloai}</td>
-                <td>{tentheloai}</td>
-                <td>{tendanhmuc}</td>
-
-                <td><a href="suadanhmuc.php?idtheloai={idtheloai}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoadanhmuc.php?idtheloai={idtheloai}">Xóa</a></td>
+                <td>{idtin}</td>
+                <td><a href="#">{tieude}</a><br />
+               <img style="float:left; margin-right:5px" src="{hinhanh}" width="142" height="96" />{tomtat}<br /></td>
+               <td>{danhmuc}</td>
+               <td>{theloai}</td>
+                <td><a href="suatintuc.php?idtin={idtin}&hinhanh={hinhanh}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoatintuc.php?idtin={idtin}&iddanhmuc={iddanhmuc}&hinhanh={hinhanh}">Xóa</a></td>
               </tr>
 
               <?php
 					$s = ob_get_clean();
-					$s = str_replace("{idtheloai}", $row_theloai["idtheloai"], $s); // thay thế
-					$s = str_replace("{tentheloai}", $row_theloai["tentheloai"], $s);
-
-					$s = str_replace("{tendanhmuc}", $row_theloai["tendanhmuc"], $s);
+          $s = str_replace("{idtin}", $row_tintuc["idtin"], $s);
+          $s = str_replace("{danhmuc}", $row_tintuc["tendanhmuc"], $s);
+					$s = str_replace("{theloai}", $row_tintuc["tentheloai"], $s); // thay thế
+					$s = str_replace("{tieude}", $row_tintuc["tieude"], $s);
+					$s = str_replace("{tomtat}", $row_tintuc["tomtat"], $s);
+          $s = str_replace("{hinhanh}", $row_tintuc["hinhanh"], $s);
+          $s = str_replace("{iddanhmuc}", $row_tintuc["iddanhmuc"], $s);
 					echo $s;
 			 }
 			  ?>
