@@ -3,7 +3,7 @@ if (isset($_POST) && !empty($_FILES['file'])) {
     $duoi = explode('.', $_FILES['file']['name']); // tách chuỗi khi gặp dấu .
     $duoi = $duoi[(count($duoi) - 1)]; //lấy ra đuôi file
     // Kiểm tra xem có phải file ảnh không
-    if ($duoi === 'jpg' || $duoi === 'png' || $duoi === 'gif') {
+    if ($duoi === 'jpg' || $duoi === 'png' || $duoi === 'gif' ||$duoi === 'jpeg') {
         // tiến hành upload
         if (move_uploaded_file($_FILES['file']['tmp_name'], 'Hinhanh/' . $_FILES['file']['name'])) {
             // Nếu thành công

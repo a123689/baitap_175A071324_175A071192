@@ -5,9 +5,7 @@
  require "../lib/trangchu.php";
 if(isset($_SESSION["iduser"])){
  ?>
- <?php
-  if($_SESSION["loaitaikhoan"] == 0 ||$_SESSION["loaitaikhoan"] == 2 ){
- ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -34,43 +32,35 @@ if(isset($_SESSION["iduser"])){
           <form id="form1" name="form1" method="post" action="">
             <table width="500" border="1" cellspacing="0" cellpadding="0">
               <tr>
-                <td colspan="6">DANH SÁCH THỂ LOẠI</td>
+                <td colspan="6">DANH SÁCH SLIDE</td>
               </tr>
               <tr>
-                <td>Mã thể loại</td>
-                <td>Tên thẻ loại</td>
-                <td>Danh mục</td>
+                <td>Mã slide</td>
+                <td>Tiêu đề</td>
+                <td>Hình ảnh</td>
 
-                <td><a href="themtheloai.php">Thêm</a></td>
+
+                <td><a href="themslide.php">Thêm</a></td>
               </tr>
           <?php
-          $theloai = null;
-          if($_SESSION["iddanhmuc"] == 0){
-            $theloai = getAllTheloai();
-          }else {
-
-            $theloai = getTheloai($_SESSION["iddanhmuc"]);
-          }
-
-			  while( $row_theloai = mysqli_fetch_array($theloai,MYSQLI_ASSOC) ){
-
+			  $slide = danhsachslide();
+			  while( $row_slide = mysqli_fetch_array($slide,MYSQLI_ASSOC) ){
           ob_start();// cho tất cả html thành 1 biến
 		  ?>
 
               <tr>
-                <td>{idtheloai}</td>
-                <td>{tentheloai}</td>
-                <td>{tendanhmuc}</td>
+                <td>{idslide}</td>
+                <td>{tieude}</td>
 
-                <td><a href="suatheloai.php?idtheloai={idtheloai}&iddanhmuc={iddanhmuc}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoatheloai.php?idtheloai={idtheloai}&iddanhmuc={iddanhmuc}">Xóa</a></td>
+                <td><img  src="Hinhanh/{hinhanh}" width="142" height="96" /></td>
+                <td><a href="suaslide.php?idslide={idslide}&hinhanh={hinhanh}">Sửa</a>- <a id="xoa"onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoaslide.php?idslide={idslide}">Xóa</a></td>
               </tr>
 
               <?php
 					$s = ob_get_clean();
-					$s = str_replace("{idtheloai}", $row_theloai["idtheloai"], $s); // thay thế
-					$s = str_replace("{tentheloai}", $row_theloai["tentheloai"], $s);
-					$s = str_replace("{tendanhmuc}", $row_theloai["tendanhmuc"], $s);
-          $s = str_replace("{iddanhmuc}", $row_theloai["iddanhmuc"], $s);
+					$s = str_replace("{idslide}", $row_slide["idslide"], $s); // thay thế
+					$s = str_replace("{tieude}", $row_slide["tieude"], $s);
+					$s = str_replace("{hinhanh}", $row_slide["hinhanh"], $s);
 					echo $s;
 			 }
 			  ?>
@@ -85,13 +75,7 @@ if(isset($_SESSION["iduser"])){
 
     </body>
 </html>
-<?php
-}else {
 
-  header('location:./quantri.php');
-
-}
- ?>
 <?php
 }else {
   header("location:http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php");

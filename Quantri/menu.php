@@ -3,6 +3,7 @@
 <a id="loaitin"href="./listtheloai.php">Quản lý thể loại</a>
 <a href="./listtintuc.php">Quản lý tin tức</a>
 <a href="./listtaikhoan.php">Quản lý tài khoản</a>
+<a href="./listslide.php">Slide</a>
 <a id="dangxuat" href="#">Đăng xuất</a>
 <script type="text/javascript">
 $(document).ready(function(){

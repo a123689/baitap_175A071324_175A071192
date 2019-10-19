@@ -22,7 +22,13 @@
    mysqli_close($conn);
   return $result;
   }
-
+  function DanhSachTheLoaiTheoDanhMuc($iddanhmuc){
+  $conn = myConnect();
+  $qr = "SELECT * FROM `theloai` where iddanhmuc = '$iddanhmuc'";
+  $result = mysqli_query($conn, $qr);
+   mysqli_close($conn);
+  return $result;
+  }
   function chitietdanhmuc($iddanhmuc){
     $conn = myConnect();
       $qr = "SELECT * FROM `danhmuc` WHERE iddanhmuc = '$iddanhmuc'";
@@ -158,6 +164,15 @@ function suaTheloai($tentheloai,$idtheloai)
  return $result;
 }
 
+function suaTheloaibyAdmin($tentheloai,$idtheloai,$iddanhmuc)
+{
+ $conn = myConnect();
+ $qr = "UPDATE `theloai` SET `tentheloai`='$tentheloai',`iddanhmuc` = '$iddanhmuc' WHERE `idtheloai`='$idtheloai'";
+ $result = mysqli_query($conn,$qr);
+ mysqli_close($conn);
+ return $result;
+}
+
 function getAllTheloai(){
 $conn = myConnect();
 $qr = "SELECT tl.idtheloai,tl.tentheloai,dm.tendanhmuc,dm.iddanhmuc FROM theloai as tl, danhmuc as dm WHERE tl.iddanhmuc = dm.iddanhmuc";
@@ -223,7 +238,13 @@ function chitiettin($idtin){
   mysqli_close($conn);
   return mysqli_fetch_array($result,MYSQLI_ASSOC);
 }
-
+function chitiettinbydanhmuc($idtin){
+  $conn = myConnect();
+    $qr = "SELECT tt.idtin,tt.idtheloai,tt.tieude,tt.tomtat,tt.hinhanh,dm.iddanhmuc FROM tintuc as tt, theloai as tl, danhmuc as dm WHERE tt.idtheloai = tl.idtheloai and tl.iddanhmuc = dm.iddanhmuc and tt.idtin = '$idtin'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return mysqli_fetch_array($result,MYSQLI_ASSOC);
+}
 function suaTintucCohinhanh($idtin,$tieude,$tomtat,$hinhanh,$idtheloai){
   $conn = myConnect();
   $qr = "UPDATE `tintuc` SET `idtheloai`='$idtheloai',`tieude`='$tieude',`tomtat`='$tomtat',`hinhanh`='$hinhanh' WHERE `idtin`='$idtin'";
@@ -235,6 +256,47 @@ function suaTintucCohinhanh($idtin,$tieude,$tomtat,$hinhanh,$idtheloai){
 function suaTintucKhongcohinhanh($idtin,$tieude,$tomtat,$idtheloai){
   $conn = myConnect();
   $qr = "UPDATE `tintuc` SET `idtheloai`='$idtheloai',`tieude`='$tieude',`tomtat`='$tomtat' WHERE `idtin`='$idtin'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function danhsachslide(){
+  $conn = myConnect();
+  $qr = "SELECT * FROM slide";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+
+function themSlide($tieude,$hinhanh){
+  $conn = myConnect();
+  $qr = "INSERT INTO `slide`(`idslide`,`tieude`,`hinhanh`) VALUES (NULL,'$tieude','$hinhanh')";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function chitietslide($idslide){
+  $conn = myConnect();
+  $qr = "SELECT * FROM slide WHERE idslide = '$idslide'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return mysqli_fetch_array($result,MYSQLI_ASSOC);
+}
+
+function suaSlideCoanh($idslide,$tieude,$hinhanh){
+  $conn = myConnect();
+  $qr = "UPDATE `slide` SET `tieude`='$tieude',`hinhanh`='$hinhanh' WHERE `idslide`='$idslide'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function suaSlideKhongcoanh($idslide,$tieude){
+  $conn = myConnect();
+  $qr = "UPDATE `slide` SET `tieude`='$tieude' WHERE `idslide`='$idslide'";
   $result = mysqli_query($conn,$qr);
   mysqli_close($conn);
   return $result;

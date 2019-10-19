@@ -60,7 +60,7 @@ if(isset($_SESSION["iduser"])){
               <tr>
                 <td>{idtin}</td>
                 <td><a href="#">{tieude}</a><br />
-               <img style="float:left; margin-right:5px" src="{hinhanh}" width="142" height="96" />{tomtat}<br /></td>
+               <img style="float:left; margin-right:5px" src="Hinhanh/{hinhanh}" width="142" height="96" />{tomtat}<br /></td>
                <td>{danhmuc}</td>
                <td>{theloai}</td>
                 <td><a href="suatintuc.php?idtin={idtin}&hinhanh={hinhanh}">Sửa</a>- <a onclick="return confirm('Bạn có chắc là muốn xóa không ?')" href="xoatintuc.php?idtin={idtin}&iddanhmuc={iddanhmuc}&hinhanh={hinhanh}">Xóa</a></td>

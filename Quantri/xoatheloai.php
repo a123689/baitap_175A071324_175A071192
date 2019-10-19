@@ -11,13 +11,21 @@ require "../lib/trangchu.php";
 <?php
  $idtheloai = $_GET["idtheloai"]; settype($idtheloai,"int");
  $iddanhmuc = $_GET["iddanhmuc"]; settype($iddanhmuc,"int");
- if($_SESSION["iddanhmuc"] == $iddanhmuc || $_SESSION["iddanhmuc"] = 0){
-   $conn = myConnect();
-     $qr = "DELETE FROM theloai WHERE idtheloai  = '$idtheloai'";
-     $user = mysqli_query($conn,$qr);
+ $conn = myConnect();
+ $qr = "DELETE FROM theloai WHERE idtheloai  = '$idtheloai'";
+ if($_SESSION["loaitaikhoan"] == 0){
+    $user = mysqli_query($conn,$qr);
+    mysqli_close($conn);
+    header("location:listtheloai.php");
+ }else {
+   if($_SESSION["iddanhmuc"] == $iddanhmuc ){
 
-   header("location:listtheloai.php");
+       $user = mysqli_query($conn,$qr);
+        mysqli_close($conn);
+       header("location:listtheloai.php");
+   }
  }
+
 
  ?>
 <?php } ?>

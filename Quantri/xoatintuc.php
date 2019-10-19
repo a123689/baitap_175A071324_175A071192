@@ -12,16 +12,23 @@ require "../lib/trangchu.php";
  $idtintuc = $_GET["idtin"]; settype($idtintuc,"int");
  $iddanhmuc = $_GET["iddanhmuc"]; settype($iddanhmuc,"int");
  $hinhanh = $_GET['hinhanh'];
+ $conn = myConnect();
+ unlink("Hinhanh/".$hinhanh);
+ $qr = "DELETE FROM tintuc WHERE idtin = '$idtintuc'";
+ if($_SESSION["loaitaikhoan"] == 0){
 
-
- if($_SESSION["iddanhmuc"] == $iddanhmuc || $_SESSION["iddanhmuc"] = 0){
-   $conn = myConnect();
-   unlink("Hinhanh/".$hinhanh);
-     $qr = "DELETE FROM tintuc WHERE idtin = '$idtintuc'";
      $user = mysqli_query($conn,$qr);
+     mysqli_close($conn);
+     header("location:listtintuc.php");
+ }else {
+   if($_SESSION["iddanhmuc"] == $iddanhmuc){
 
-   header("location:listtintuc.php");
+       $user = mysqli_query($conn,$qr);
+       mysqli_close($conn);
+       header("location:listtintuc.php");
+   }
  }
+
 
  ?>
 <?php } ?>
