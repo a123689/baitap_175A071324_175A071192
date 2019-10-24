@@ -138,14 +138,21 @@
 											 $("#spanloidangnhap").html("Tài khoản đã tồn tại");
 											 $(".loidangky").css("display","block");
 										 }else {
+											 $.post("kiemtraemail.php",{email:email},function(data){
+												 if(data == "false"){
+													 $("#spanloidangnhap").html("Email đã được sử dụng");
+													 $(".loidangky").css("display","block");
+												 }else {
+													 $.post("dangkytaikhoan.php",{hoten:$('#hoten').val(),taikhoan:$('#taikhoan').val(),matkhau:$('#matkhau').val(),diachi:$('#diachi').val(),email:$('#email').val(),dienthoai:$('#sodienthoai').val()},function(data){
 
-											 $.post("dangkytaikhoan.php",{hoten:$('#hoten').val(),taikhoan:$('#taikhoan').val(),matkhau:$('#matkhau').val(),diachi:$('#diachi').val(),email:$('#email').val(),dienthoai:$('#sodienthoai').val()},function(data){
+				 										 alert("Đăng ký thành công");
+														 let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php';
+									           $('#form3').prop('action',url);
+									           $('#form3').submit()
+				 						      });
+												 }
+												});
 
-		 										 alert("Đăng ký thành công");
-												 let url = 'http://192.168.64.2/baitaplon/baitap_175A071324_175A071192/dangnhap/formdangnhap.php';
-							           $('#form3').prop('action',url);
-							           $('#form3').submit()
-		 						      });
 										 }
 
 						      });
