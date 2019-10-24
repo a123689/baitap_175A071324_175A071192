@@ -4,18 +4,22 @@
     <div class="carousel-inner">
       <?php
           $danhmuc = danhsachslide();
+          $i=0;
           while ($row = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC)) {
+  echo '<div class="carousel-item  ';
+          if ($i == 0) {
+          echo 'active  ';
 
-          ?>
-        <div class="carousel-item active">
-            <img class="d-block w-100"
-                src="../Quantri/Hinhanh/<?php echo $row['hinhanh']?>"
-                alt="" height="450" width="450">
-            <div class="image-title">
-                <h1><?php echo $row['tieude']?></h1>
-            </div>
-        </div>
-<?php }?>
+          }
+          echo '"><img class="d-block w-100" src="../Quantri/Hinhanh/'.$row['hinhanh'].'"  alt="" height="450" width="450">';
+         echo '<div class="image-title">';
+         echo '<h1>'.$row['tieude'].'</h1>';
+         echo '</div>';
+
+        echo '</div>';
+        $i++;
+ }
+ ?>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls1" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
