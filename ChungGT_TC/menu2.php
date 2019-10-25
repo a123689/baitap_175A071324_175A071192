@@ -15,29 +15,31 @@
                 <div class="row">
                     <div class="col-lg-9 row">
                       <?php
-                      $danhmuc = getDanhmuc();
-                      while($row_danhmuc = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC) ){
-	                    $iddanhmuc = $row_danhmuc['iddanhmuc'];
-                      ?>
+                                           $danhmuc = getDanhmuc();
+                                           while($row_danhmuc = mysqli_fetch_array($danhmuc,MYSQLI_ASSOC) ){
+                                           $iddanhmuc = $row_danhmuc['iddanhmuc'];
+                                           ?>
                         <div class="col-lg-4">
+
                             <ul class="subnav">
+
                                 <li><a href="" class="mHead"><?php echo $row_danhmuc['tendanhmuc']?></a></li>
                                 <?php
                                 $theloai = getTheloaibydanhmuc($iddanhmuc);
                                 while($row_theloai = mysqli_fetch_array($theloai,MYSQLI_ASSOC) ){
-                              
+
                                 ?>
                                 <li><a href=""><i class="fa fa-angle-double-right"></i><?php echo $row_theloai['tentheloai']?></a></li>
-
+                              <?php }?>
 
                             </ul>
-                            <?php
-                          }
-                          ?>
                         </div>
+
                         <?php
-                      }
-                      ?>
+                                            }
+                                            ?>
+
+
 
                     </div>
                     <div class="col-lg-3">
