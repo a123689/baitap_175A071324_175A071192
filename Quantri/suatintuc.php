@@ -300,7 +300,7 @@ if(isset($_SESSION["iduser"])){
          var hinhanh =  $("#file").val();
          var tieude =  $("#TieuDe").val();
          var tomtat= $("#TomTat").val();
-         var regextieude = /^[A-z|0-9|\W|\s]{10,100}/;
+         var regextieude = /^[A-z|0-9|\W|\s]{4,100}/;
          var regextomtat = /^[A-z|0-9|\W|\s]{10,210}/;
          var regexhinhanh = /^[A-z|0-9|\W|\s]{1,150}/;
          if(tieude == ""){
@@ -309,7 +309,7 @@ if(isset($_SESSION["iduser"])){
            alert("Tóm tắt không được để trống");
          }else {
            if(!regextieude.test(tieude)){
-            alert("Tiêu đề phải từ 10 đến 100 ký tự");
+            alert("Tiêu đề phải từ 5 đến 100 ký tự");
           }else if(!regextomtat.test(tomtat)){
             alert("Tóm tắt phải từ 10 đến 210 ký tự");
           }else {

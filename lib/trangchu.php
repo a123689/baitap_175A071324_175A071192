@@ -122,6 +122,13 @@
  return $result;
  }
 
+function geTaikhoanbyid($idtaikhoan){
+$conn = myConnect();
+$qr = "SELECT * FROM `users`where iduser != '$idtaikhoan'";
+$result = mysqli_query($conn, $qr);
+ mysqli_close($conn);
+return $result;
+}
  function dangkytaikhoan($hoten,$taikhoan,$matkhau,$diachi,$dienthoai,$email){
  $conn = myConnect();
  $qr = "INSERT INTO `users`(`iduser`, `hoten`, `taikhoan`, `matkhau`, `diachi`, `dienthoai`, `email`, `ngaydangky`, `loaitaikhoan`) VALUES (NULL,'$hoten','$taikhoan','$matkhau','$diachi','$dienthoai','$email',NOW(),'1')";
@@ -297,6 +304,22 @@ function suaSlideCoanh($idslide,$tieude,$hinhanh){
 function suaSlideKhongcoanh($idslide,$tieude){
   $conn = myConnect();
   $qr = "UPDATE `slide` SET `tieude`='$tieude' WHERE `idslide`='$idslide'";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function suaTaikhoanKhongmatkhau($iduser,$hoten,$diachi,$dienthoai,$email,$quyentruycap){
+  $conn = myConnect();
+  $qr = "UPDATE `users` SET `hoten`='$hoten',`diachi`='$diachi',`dienthoai`='$dienthoai',`email`='$email',`iddanhmuc`='$quyentruycap' WHERE `iduser`= '$iduser' ";
+  $result = mysqli_query($conn,$qr);
+  mysqli_close($conn);
+  return $result;
+}
+
+function suaTaikhoanComatkhau($iduser,$hoten,$hashed_password,$diachi,$dienthoai,$email,$quyentruycap){
+  $conn = myConnect();
+  $qr = "UPDATE `users` SET `hoten`='$hoten',`matkhau`= '$hashed_password',`diachi`='$diachi',`dienthoai`='$dienthoai',`email`='$email',`iddanhmuc`='$quyentruycap' WHERE `iduser`= '$iduser' ";
   $result = mysqli_query($conn,$qr);
   mysqli_close($conn);
   return $result;
